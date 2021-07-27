@@ -1,0 +1,18 @@
+{
+    "N_parties": 10,
+    "N_samples_per_class": 100,
+    "N_alignment": 60,
+    "public_dataset": "E_MNIST",
+    "private_classes": [10, 11, 12, 13, 14, 15],
+    "public_classes": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "is_show": False,
+    "N_rounds": 20,
+    "N_logits_matching_round": 1, 
+    "N_private_training_round": 5,
+    "private_training_batchsize" : 5, 
+    "logits_matching_batchsize": 128,
+    "latent_dim" : 100,
+    "EMNIST_dir": "./dataset/emnist-letters.mat",
+    "model_saved_dir": "./pretrained_from_MNIST/",
+    "result_save_dir": "./results_FEMNIST_balanced"
+}
