@@ -16,7 +16,7 @@ from ResNet_v2 import remove_last_layer, build_generator, modify_set_weights, mo
 
 tf.compat.v1.enable_eager_execution()
 
-class FedMD():
+class FedGD():
     def __init__(self, parties, public_dataset,
                  private_data, total_private_data,  
                  private_test_data, N_alignment,
