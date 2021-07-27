@@ -10,7 +10,7 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.optimizers import Adam
 
 from data_utils import load_CIFAR_data, generate_partial_data, generate_bal_private_data
-from FedMD import FedMD
+from FedGD import FedGD
 from Neural_Networks import train_models, cnn_2layer_fc_model, cnn_3layer_fc_model
 from ResNet_v2 import ResNet, build_model
 
@@ -136,7 +136,7 @@ if __name__ == "__main__":
     del  X_train_CIFAR10, y_train_CIFAR10, X_test_CIFAR10, y_test_CIFAR10, \
     X_train_CIFAR100, y_train_CIFAR100, X_test_CIFAR100, y_test_CIFAR100,
     
-    fedmd = FedMD(parties, 
+    fedgd = FedGD(parties, 
                   public_dataset = public_dataset,
                   private_data = private_data, 
                   total_private_data = total_private_data,
@@ -148,10 +148,10 @@ if __name__ == "__main__":
                   N_private_training_round = N_private_training_round, 
                   private_training_batchsize = private_training_batchsize)
     
-    initialization_result = fedmd.init_result
-    # pooled_train_result = fedmd.pooled_train_result
+    initialization_result = fedgd.init_result
+    # pooled_train_result = fedgd.pooled_train_result
     
-    collaboration_performance, collaboration_loss, record_generator_result = fedmd.collaborative_training()
+    collaboration_performance, collaboration_loss, record_generator_result = fedgd.collaborative_training()
     
     if result_save_dir is not None:
         save_dir_path = os.path.abspath(result_save_dir)
