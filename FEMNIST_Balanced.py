@@ -8,19 +8,19 @@ import numpy as np
 from tensorflow.keras.models import load_model, clone_model
 from data_utils import load_MNIST_data, load_Fashion_MNIST_data, \
     load_CIFAR_data, load_EMNIST_data, generate_bal_private_data, generate_partial_data
-from FedMD import FedMD
-# from FedMD_original import FedMD
-# from FedMD_gan import FedMD
-# from FedMD_logits import FedMD
+from FedGD import FedGD
+# from FedGD_original import FedGD
+# from FedGD_gan import FedGD
+# from FedGD_logits import FedGD
 from utility import plot_history, show_performance
 from Neural_Networks import train_models, cnn_2layer_fc_model, cnn_3layer_fc_model
 
 
 def parseArg():
-    parser = argparse.ArgumentParser(description='FedMD, a federated learning framework. \
+    parser = argparse.ArgumentParser(description='FedGD, a federated learning framework. \
     Participants are training collaboratively. ')
     parser.add_argument('-conf', metavar='conf_file', nargs=1, 
-                        help='the config file for FedMD.'
+                        help='the config file for FedGD.'
                        )
 
     conf_file = os.path.abspath("conf/EMNIST_balance_10_conf.json")
